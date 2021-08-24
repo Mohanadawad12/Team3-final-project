@@ -6,15 +6,69 @@
 using namespace std;
 
 
-void encrypt(){
-	cout<<"encrypt\n";
-	// cout<<"enter the sentence";
-	//cin>>
+int encrypt(){
+	char message[100],s;
+	int i,key;
+	cout<<"enter the sentence you want to encrypt\n";
+	cin>>message;
+	cout<<"\nenter key";
+	cin>>key;
+	for(i = 0;message[i] !='\0';++i){
+		s = message[i];
+		if(s>='a'&&s<='z'){
+			s = s+ key;
+		
+		if(s> 'z'){
+			s = s- 'z'+'a' -1 ;
+			
+		}
+		
+		message[i]=s;
+}
+	else if (s>='A'&& s <='z'){
+		s =s +key;
+		if(s>'Z'){
+			s=s -'Z' +'A'-1;
+			
+		}
+		message[i] =s;
+		
+	}
+	
+}
+	
+cout<<"Encrypted message: " << message;
+	
+	return 0;
+	
 };
-void decrypt(){
-	cout<<"decrypt\n";
-	// cout<<"enter the sentence";
-	//cin>>
+int  decrypt(){
+	char message[100], s;
+int i, key;
+cout << "Enter a message to decrypt: ";
+cin>> message ;
+cout << "\nEnter key: ";
+cin >> key;
+for(i = 0; message[i] != '\0'; ++i){
+
+s = message[i];
+if(s >= 'a' && s <= 'z'){
+s = s - key;
+if(s < 'a'){
+s = s + 'z' - 'a' + 1;
+}
+message[i] = s;
+}
+else if(s >= 'A' && s <= 'Z'){
+s = s - key;
+if(s > 'a'){
+s = s + 'Z' - 'A' + 1;
+}
+message[i] =s ;
+}
+}
+cout << "Decrypted message: " << message;
+return 0;
 };
 
 
